@@ -2,19 +2,20 @@ const {Schema, model} = require('mongoose')
 
 const courseSchema = new Schema({
   title: {
+    _id: Number,
     type: String,
-    required: true
+    required: true,
   },
   price: {
     type: Number,
-    required: true
+    required: true,
   },
   img: String,
   userId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
-  }
-})
+    ref: "User",
+  },
+});
 
 courseSchema.method('toClient', function() {
   const course = this.toObject()
